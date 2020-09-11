@@ -6,8 +6,8 @@ import requests
 
 def pretty_print(text_message):
     """
-    2020/09/08 10:00:23  John
-    Text of the message
+    2020/09/08 10:00:23  Chandler
+    Hi Monica!
 
     """
     dt = datetime.fromtimestamp(text_message['timestamp'])
@@ -30,4 +30,6 @@ while True:
         pretty_print(message)
         after_id = message['id']  # the last id of the printed message is assigned
     # pauses code execution
-    time.sleep(1)
+    # if there are already messages on the server, then the request is made immediately and does not wait
+    if not messages:
+        time.sleep(1)

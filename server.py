@@ -17,7 +17,10 @@ def status():
     return {
         'status': True,
         'Name': 'RMess',
-        'time': datetime.now()
+        'time': datetime.now(),
+        'messages_on_server': len(db),
+        # the length of the set consisting of unique names, that is, the number of users on the server
+        'users_on_server': len(set(message['name'] for message in db))
      }
 
 
@@ -41,7 +44,10 @@ def messages():
         after_id = int(request.args['after_id']) + 1
     else:
         after_id = 0
-    return {'messages': db[after_id:]}
+    # pagination that helps us not to receive all messages at once in the receiver.py, but to receive them in parts
+    limit = 50
+
+    return {'messages': db[after_id:after_id+limit]}
 
 
 app.run()
