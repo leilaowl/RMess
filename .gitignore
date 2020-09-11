@@ -1,0 +1,5 @@
+'#' ignore these files
+
+*.idea/
+*venv/
+*test_m.py
