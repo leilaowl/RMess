@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>424</width>
+    <height>613</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RMess</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(175, 202, 158);
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri Light</family>
+      <pointsize>40</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+  background-color: white;
+}
+
+QLineEdit{
+  background-color: white;
+}
+
+QTextBrowser{
+  background-color: PapayaWhip;
+}
+
+QPushButton{
+  background-color: DarkSalmon;
+  text-align: center;
+}
+
+QPushButton:hover {
+  background-color: IndianRed;
+}
+
+QPushButton:pressed {
+  background-color: LightSalmon;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>RMess</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>361</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+  background-color: Snow;
+}
+
+QLineEdit{
+  background-color: Snow;
+}
+
+QTextBrowser{
+  background-color: Snow;
+}
+
+QPushButton{
+  background-color: DarkSalmon;
+  text-align: center;
+}
+
+QPushButton:hover {
+  background-color: IndianRed;
+}
+
+QPushButton:pressed {
+  background-color: LightSalmon;
+}
+
+</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>530</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+  background-color: white;
+}
+
+QLineEdit{
+  background-color: white;
+}
+
+QTextBrowser{
+  background-color: PapayaWhip;
+}
+
+QPushButton{
+  background-color: DarkSalmon;
+  text-align: center;
+}
+
+QPushButton:hover {
+  background-color: IndianRed;
+}
+
+QPushButton:pressed {
+  background-color: LightSalmon;
+}
+
+</string>
+    </property>
+    <property name="placeholderText">
+     <string>Enter your text...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>530</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+  background-color: white;
+}
+
+QLineEdit{
+  background-color: white;
+}
+
+QTextBrowser{
+  background-color: PapayaWhip;
+}
+
+QPushButton{
+  background-color: DarkSalmon;
+  text-align: center;
+}
+
+QPushButton:hover {
+  background-color: IndianRed;
+}
+
+QPushButton:pressed {
+  background-color: LightSalmon;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>Send</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>60</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+  background-color: white;
+}
+
+QLineEdit{
+  background-color: white;
+}
+
+QTextBrowser{
+  background-color: PapayaWhip;
+}
+
+QPushButton{
+  background-color: DarkSalmon;
+  text-align: center;
+}
+
+QPushButton:hover {
+  background-color: IndianRed;
+}
+
+QPushButton:pressed {
+  background-color: LightSalmon;
+}
+
+</string>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>63</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit{
+  background-color: white;
+}
+
+QLineEdit{
+  background-color: white;
+}
+
+QTextBrowser{
+  background-color: PapayaWhip;
+}
+
+QPushButton{
+  background-color: DarkSalmon;
+  text-align: center;
+}
+
+QPushButton:hover {
+  background-color: IndianRed;
+}
+
+QPushButton:pressed {
+  background-color: LightSalmon;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>Your name:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
