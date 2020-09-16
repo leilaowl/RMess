@@ -81,6 +81,11 @@ QPushButton:pressed {
       <height>421</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QTextEdit{
   background-color: Snow;

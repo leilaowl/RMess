@@ -60,6 +60,9 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser.setGeometry(QtCore.QRect(30, 90, 361, 421))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.textBrowser.setFont(font)
         self.textBrowser.setStyleSheet("QTextEdit{\n"
 "  background-color: Snow;\n"
 "}\n"
