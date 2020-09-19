@@ -19,16 +19,16 @@ def pretty_print(text_message):
 
 
 url = 'http://127.0.0.1:5000/messages'
-after_id = -1  # the identifier by which messages are filtered
+after_timestamp = 0  # the identifier by which messages are filtered
 
 while True:
     # asks for the messages, 'params' passes the arguments as a dictionary
-    response = requests.get(url, params={'after_id': after_id})
+    response = requests.get(url, params={'after_timestamp': after_timestamp})
     # prints new messages to the console one at a time
     messages = response.json()['messages']
     for message in messages:
         pretty_print(message)
-        after_id = message['id']  # the last id of the printed message is assigned
+        after_timestamp = message['timestamp']  # the last id of the printed message is assigned
     # pauses code execution
     # if there are already messages on the server, then the request is made immediately and does not wait
     if not messages:

@@ -10,14 +10,13 @@ class Rmess(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, url):  # initialization
         super().__init__()
         self.setupUi(self)
-
-        self.after_id = -1
+        self.after_timestamp = -1
+        self.load_messages()
         # calls the function update_messages by timer
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.update_messages)
         self.timer.start(1000)
 
-        # something
         self.url = url
         self.pushButton.pressed.connect(self.button_pressed)
 
@@ -36,21 +35,46 @@ class Rmess(QtWidgets.QMainWindow, Ui_MainWindow):
         self.textBrowser.repaint()
 
     def update_messages(self):
-        response = requests.get(self.url + '/messages',
-                                params={'after_id': self.after_id})
-        messages = response.json()['messages']
-        for message in messages:
-            self.pretty_print(message)
-            self.after_id = message['id']
+        response = None
+        # to avoid problems when the server doesn't work
+        try:
+            response = requests.get(self.url + '/messages',
+                                    params={'after_timestamp': self.after_timestamp})
+        except Exception:
+            pass
+
+        if response and response.status_code == 200:
+            messages = response.json()['messages']
+            for message in messages:
+                self.pretty_print(message)
+                self.after_timestamp = message['timestamp']
+            return messages
+
+    # calls update_messages that returns messages until it gets no messages
+    # solves the problem of reducing the load on the messenger
+    def load_messages(self):
+        while self.update_messages():
+            pass
 
     # when the button is pressed, message is send to the server
     def button_pressed(self):
         name = self.lineEdit.text()
         text = self.textEdit.toPlainText()
         data = {'name': name, 'text': text}
-        response = requests.post(self.url + '/send', json=data)
-        self.textEdit.clear()
-        self.textEdit.repaint()
+        response = None
+
+        try:
+            response = requests.post(self.url + '/send', json=data)
+        except Exception:
+            pass
+
+        if response and response.status_code:
+            self.textEdit.clear()
+            self.textEdit.repaint()
+        else:
+            self.textBrowser.append('При отправке произошла ошибка')
+            self.textBrowser.append('')
+            self.textBrowser.repaint()
 
 
 app = QtWidgets.QApplication([])

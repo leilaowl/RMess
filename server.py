@@ -40,12 +40,19 @@ def send():
 @app.route('/messages')
 def messages():
     # 'request.args' gets the arguments
-    if 'after_id' in request.args:
-        after_id = int(request.args['after_id']) + 1
+    if 'after_timestamp' in request.args:
+        after_timestamp = float(request.args['after_timestamp'])
     else:
-        after_id = 0
-    # pagination that helps us not to receive all messages at once in the receiver.py, but to receive them in parts
+        after_timestamp = 0
+
+    # pagination that helps us not to receive all messages at once in the receiver.py, but to receive them in parts.
+    # if the timestamp from the server is bigger than a timestamp from the client, after_id = 0
     limit = 50
+    after_id = 0
+    for message in db:
+        if message['timestamp'] > after_timestamp:
+            break
+        after_id += 1
 
     return {'messages': db[after_id:after_id+limit]}
 
