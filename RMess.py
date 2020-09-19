@@ -40,7 +40,7 @@ class Rmess(QtWidgets.QMainWindow, Ui_MainWindow):
         try:
             response = requests.get(self.url + '/messages',
                                     params={'after_timestamp': self.after_timestamp})
-        except Exception:
+        except SystemError:
             pass
 
         if response and response.status_code == 200:
@@ -65,7 +65,7 @@ class Rmess(QtWidgets.QMainWindow, Ui_MainWindow):
 
         try:
             response = requests.post(self.url + '/send', json=data)
-        except Exception:
+        except SystemError:
             pass
 
         if response and response.status_code:
